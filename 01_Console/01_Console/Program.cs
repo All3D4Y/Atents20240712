@@ -162,12 +162,19 @@ namespace _01_Console
                     grade = Grade.D;
                 }
 
-                Console.WriteLine(grade);
+                Console.WriteLine($"성적은 {grade}입니다.");
             }
             else
             {
                 Console.WriteLine("점수가 잘못입력되었습니다.");
             }
+
+            //비트연산자 a = 0b_0111_1011; 이진수로 쓴 123
+            //int b1 = 0b_1010;
+            //int b2 = 0b_1100;
+            //int c1 = b1 & b2; //0b_1000
+            //int c2 = b1 | b2; //0b_1110
+
         }
 
         enum Grade
