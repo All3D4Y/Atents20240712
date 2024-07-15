@@ -142,34 +142,32 @@ namespace _01_Console
             Console.Write("점수를 입력하세요: ");
             string? score = Console.ReadLine();
             int intScore;
-            Grade grade = new Grade();
-            if(!int.TryParse(score, out intScore))
+            Grade grade = Grade.F;
+            if(int.TryParse(score, out intScore))
             {
-                Console.WriteLine("점수가 잘못입력되었습니다.");
-            }
+                if (intScore > 89)
+                {
+                    grade = Grade.A;
+                }
+                else if (intScore > 79)
+                {
+                    grade = Grade.B;
+                }
+                else if (intScore > 69)
+                {
+                    grade = Grade.C;
+                }
+                else if (intScore > 59)
+                {
+                    grade = Grade.D;
+                }
 
-            if(intScore >= 90)
-            {
-                grade = Grade.A;
-            }
-            else if (intScore >= 80)
-            {
-                grade = Grade.B;
-            }
-            else if (intScore >= 70)
-            {
-                grade = Grade.C;
-            }
-            else if (intScore >= 60)
-            {
-                grade = Grade.D;
+                Console.WriteLine(grade);
             }
             else
             {
-                grade = Grade.F;
+                Console.WriteLine("점수가 잘못입력되었습니다.");
             }
-
-            Console.WriteLine(grade);
         }
 
         enum Grade
