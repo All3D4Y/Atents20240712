@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System.Drawing;
+using System.Net;
 using System.Xml.Linq;
 
 namespace _01_Console
@@ -139,41 +140,86 @@ namespace _01_Console
             //실습
             //성적용 enum A, B, C, D, F
             //점수 입력받아 90이상 A, 80이상 B, 70이상 C, 60이상 D
-            Console.Write("점수를 입력하세요: ");
-            string? score = Console.ReadLine();
-            int intScore;
-            Grade grade = Grade.F;
-            if(int.TryParse(score, out intScore))
-            {
-                if (intScore > 89)
-                {
-                    grade = Grade.A;
-                }
-                else if (intScore > 79)
-                {
-                    grade = Grade.B;
-                }
-                else if (intScore > 69)
-                {
-                    grade = Grade.C;
-                }
-                else if (intScore > 59)
-                {
-                    grade = Grade.D;
-                }
+            //Console.Write("점수를 입력하세요: ");
+            //string? score = Console.ReadLine();
+            //int intScore;
+            //Grade grade = Grade.F;
+            //if(int.TryParse(score, out intScore))
+            //{
+            //    if (intScore > 89)
+            //    {
+            //        grade = Grade.A;
+            //    }
+            //    else if (intScore > 79)
+            //    {
+            //        grade = Grade.B;
+            //    }
+            //    else if (intScore > 69)
+            //    {
+            //        grade = Grade.C;
+            //    }
+            //    else if (intScore > 59)
+            //    {
+            //        grade = Grade.D;
+            //    }
 
-                Console.WriteLine($"성적은 {grade}입니다.");
-            }
-            else
-            {
-                Console.WriteLine("점수가 잘못입력되었습니다.");
-            }
+            //    Console.WriteLine($"성적은 {grade}입니다.");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("점수가 잘못입력되었습니다.");
+            //}
 
             //비트연산자 a = 0b_0111_1011; 이진수로 쓴 123
             //int b1 = 0b_1010;
             //int b2 = 0b_1100;
             //int c1 = b1 & b2; //0b_1000
             //int c2 = b1 | b2; //0b_1110
+
+
+            //Array
+            //자료형[] 배열이름
+            //범위벗어나면 index out of range exception!
+            //int[] intArray = {1, 2, 3};
+            //foreach (int i in intArray) {}
+
+            //실습
+            //숫자입력받기
+            //입력받은숫자의 구구단 출력
+            //함수로
+            //파라미터로 받은 숫자의 구구단 출력하는 함수 만들기
+
+            Console.Write("구구단 \n첫번째 숫자를 입력하세요 : ");
+            string? stringN1 = Console.ReadLine();
+            int n1 = int.Parse(stringN1);
+            Console.Write("두번째 숫자를 입력하세요 : ");
+            string? stringN2 = Console.ReadLine();
+            int n2 = int.Parse(stringN2);
+
+            int[] n1Array = new int[n2];
+            for (int i = 0; i < n1Array.Length; i++)
+            {
+                n1Array[i] = n1 * (i + 1);
+            }
+
+            foreach (int i in n1Array)
+            {
+                Console.WriteLine(i);
+            }
+
+            // C#의 메모리구조
+            // Heap memory 운영체제가 관리하는 메모리, 크기가 크고 속도가느림
+            // class가 저장됨
+
+            // Stack memory 프로그램이 실행되었을때 이미 할당받은 메모리, 크기가 작고 속도가 빠름
+            // struct가 저장됨
+
+            // 깊은 복사: 완전한 사본을 만듬, 얕은복사: 주소만 넘겨줌
+            // 참조타입 (Reference type): 얕은복사, 복사속도 빠름, 실체 1개
+            // 값타입 (Value type): 깊은복사, 복사속도 느림, 실체 여러개
+
+            // static: 정적, 프로그램 실행 전에 결정되어 있는 것
+            // dynamic: 동적, 프로그램 실행 시 결정되는 것
 
         }
 
